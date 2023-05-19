@@ -3,7 +3,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route("E:")
+@app.route("/")
 
 def index():
     cpu_percent = psutil.cpu_percent()
