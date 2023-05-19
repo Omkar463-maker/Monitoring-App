@@ -1,9 +1,8 @@
 import psutil
 from flask import Flask, render_template
 
-app = Flask(__name__)
-
-@app.route("E:")
+app = Flask(__name__, template_folder='template')
+@app.route("/")
 
 def index():
     cpu_percent = psutil.cpu_percent()
@@ -11,6 +10,6 @@ def index():
     Message = None
     if cpu_percent > 80 or mem_percent >80:
         Message = "High CPU or Memory Utilization detected. Please add resoruces"
-    return render_template("index.html", cpu_metric=cpu_percent, mem_metric=mem_percent, message=Message)
+    return render_template('index.html', cpu_metric=cpu_percent, mem_metric=mem_percent, message=Message)
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
