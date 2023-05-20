@@ -15,3 +15,7 @@ COPY . .
 
 ENV HOST=0.0.0.0
 #Host IP
+
+EXPOSE 5000
+
+CMD ["flask", "run"]
